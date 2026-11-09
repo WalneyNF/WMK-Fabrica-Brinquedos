@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WMK Fábrica de Brinquedos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-bubbles"></div>
+  <div class="app">
+    <header class="hero">
+      <div>
+        <p class="mini">Linha de montagem infantil</p>
+        <h1 id="gameTitle">WMK Fábrica de Brinquedos</h1>
+        <p id="gameSubtitle">Monte, teste e entregue brinquedos divertidos!</p>
+      </div>
+      <div class="hero-right">
+        <button class="difficulty-btn active" data-difficulty="facil">Fácil</button>
+        <button class="difficulty-btn" data-difficulty="normal">Normal</button>
+        <button class="difficulty-btn" data-difficulty="desafio">Desafio</button>
+        <button id="newGameBtn" class="pill success">Nova partida</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="order-panel card">
+        <div class="card-title">📋 Pedido do Cliente</div>
+        <div class="order-preview-row">
+          <canvas id="orderCanvas" width="220" height="210"></canvas>
+          <div class="customer-box">
+            <div class="customer-avatar">🧒</div>
+            <div>
+              <strong id="customerMood">Cliente feliz</strong>
+              <p id="customerText">Quero um brinquedo super legal!</p>
+            </div>
+          </div>
+        </div>
+        <h2 id="orderName">Brinquedo pedido</h2>
+        <ul class="order-list" id="orderList"></ul>
+        <div class="hint-box">💡 Monte o brinquedo passando pelas 4 estações e depois faça um teste.</div>
+      </aside>
+
+      <section class="factory-panel card">
+        <div class="status-bar">
+          <div class="stat"><span>⭐ Pontos</span><strong id="scoreEl">0</strong></div>
+          <div class="stat"><span>❤️ Vidas</span><strong id="livesEl">5</strong></div>
+          <div class="stat"><span>⏱️ Tempo</span><strong id="timeEl">00:00</strong></div>
+          <div class="stat"><span>🏆 Recorde</span><strong id="bestEl">0</strong></div>
+        </div>
+
+        <div class="factory-scene">
+          <div class="decor decor-gear a"></div>
+          <div class="decor decor-gear b"></div>
+          <div class="decor decor-gift c"></div>
+          <div class="decor decor-block d"></div>
+
+          <div class="stations-grid">
+            <div class="station" data-section="body">
+              <div class="station-header">🐻 Corpo</div>
+              <div id="bodyOptions" class="option-grid option-grid-2"></div>
+            </div>
+            <div class="station" data-section="color">
+              <div class="station-header">🎨 Pintura</div>
+              <div id="colorOptions" class="option-grid option-grid-3"></div>
+            </div>
+            <div class="station" data-section="clothe">
+              <div class="station-header">👕 Roupa</div>
+              <div id="clotheOptions" class="option-grid option-grid-2"></div>
+            </div>
+            <div class="station" data-section="accessory">
+              <div class="station-header">🎩 Acessório</div>
+              <div id="accessoryOptions" class="option-grid option-grid-2"></div>
+            </div>
+          </div>
+
+          <div class="belt-wrap">
+            <div class="belt-lights"></div>
+            <div class="belt-track"></div>
+            <div class="toy-stage">
+              <canvas id="toyCanvas" width="300" height="260"></canvas>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button id="randomBuildBtn" class="pill alt">🎲 Montagem aleatória</button>
+            <button id="testToyBtn" class="pill">▶️ Teste do brinquedo</button>
+            <button id="deliverBtn" class="pill success">🚚 Entregar brinquedo</button>
+          </div>
+          <div id="messageEl" class="message-box">Escolha as peças para montar o brinquedo.</div>
+        </div>
+      </section>
+
+      <aside class="side-panel card">
+        <div class="card-title">🧩 Peças selecionadas</div>
+        <div class="parts-summary" id="partsSummary"></div>
+
+        <div class="card-title top-gap">🧪 Teste do Brinquedo</div>
+        <div class="test-box">
+          <canvas id="testCanvas" width="230" height="210"></canvas>
+          <p id="testText">Clique em <strong>Teste do brinquedo</strong> para ver sua criação em ação.</p>
+        </div>
+
+        <div class="card-title top-gap">📚 Como editar</div>
+        <p class="small-note">Os dados do jogo ficam em <code>data/game-data.json</code>. Dá para trocar nomes, cores, corpos e dificuldades.</p>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>Projeto em HTML/CSS/JS • GitHub Pages</span>
+      <span><strong>Walney Moreira Klein — walneyk@hotmail.com</strong></span>
+    </footer>
+  </div>
+
+  <script src="data/game-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
